@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blog - Meu Filho Tem Futuro </title>
+	<meta charset="utf-8">
+	<!-- CSS -->
+	<script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+	<style type="text/css">
+
+	.escondido{
+	display: none;
+	}
+
+	</style>
+
+</head>
+
+<body>
+	<section id="Topo">
+
+	<nav id="TopoNav">
+	<h2>Aqui vai vir a barra de navegação</h2>
+	</nav>
+
+	<h2>Aqui vai vir o corpo</h2>
+
+
+	<form action="/obrigado/" name="contact" method="POST" data-netlify="true">
+		<p>
+		<label>Nome: <input type="text" name="name" /></label>  
+		</p>
+		<p>
+		<label>E-mail: <input type="email" name="email" /></label>
+		</p>
+		<p>
+		   <label>Menssagem: <textarea name="message"></textarea></label>
+		</p>
+
+		<label class="escondido">
+
+		<input type="text" id="txtInput" class="agoraVaiIP" name="data" />
+		//<div class ="agoraVai"></div>
+
+		</label>
+
+		<p class="escondido">
+			<label class="agoraVaiData">Data: <textarea name="message"></textarea></label>
+		</p>
+
+		<p class="escondido">
+			<label class="agoraVaiIP">Data: <textarea name="message"></textarea></label>
+		</p>
+
+		<!-- <label class="escondido">
+			<input type="text" id="txtInput" class="agoraVaiData">
+		</label> -->
+		
+		<p>
+		<button id="demo" onclick="pegaData()">Enviar</button>
+		</p>
+		
+	</form>
+
+	<h2>Aqui vai vir o rodapé</h2>
+
+
+	</section>
+
+	<p id="demo">Click me to change my text color.</p>
+	<div id="teste">1</div>
+
+	<script type="text/javascript">
+	function pegaData() {
+
+		var currentDate = new Date();
+		var date = currentDate.getDate();
+		var month = currentDate.getMonth(); //Be careful! January is 0 not 1
+		var year = currentDate.getFullYear();
+
+		var ip = "";
+
+		var dateString = date + "-" +(month + 1) + "-" + year;
+
+		//document.getElementById("agoraVai").innerText = dateString;
+		ip = geoplugin_request();
+		document.getElementsByClassName("agoraVaiData")[0].innerText = dateString;
+		document.getElementsByClassName("agoraVaiIP")[0].innerText = ip;
+		console.log(dateString);
+		console.log(ip);
+	}
+
+	</script>
+</body>
+
+</html>
